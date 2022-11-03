@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import MainScreen from "../../components/MainScreen";
 import { Button, Row, Col } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./LoginPage.css";
 import axios from "axios";
 import Loading from "../../components/Loading";
@@ -14,23 +14,14 @@ const LoginPage = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const navigate = useNavigate();
-
-  //   useEffect(() => {
-  //     const userInfo = localStorage.setItem("userInfo");
-
-  //     if (userInfo) {
-  //       navigate("/mynotes");
-  //     }
-  //   }, [navigate]);
-
   const submitHandler = async (e) => {
     e.preventDefault();
 
     try {
       const config = {
         headers: {
-          "Content-type": "application/json",
+          Accept: "application/json",
+          "Content-Type": "application/json;charset=UTF-8",
         },
       };
 
@@ -38,10 +29,7 @@ const LoginPage = () => {
 
       const { data } = await axios.post(
         "/api/users/login",
-        {
-          email,
-          password,
-        },
+        { email, password },
         config
       );
       console.log(data);
