@@ -219,10 +219,10 @@ label {
 button {
   border-radius: 0;
 }
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-}
+/* button:focus {
+  outline: 1px dotted; 
+ outline: 5px auto -webkit-focus-ring-color;
+} */
 button,
 input,
 optgroup,
@@ -4651,6 +4651,11 @@ input[type="submit"].btn-block {
 .accordion > .card > .card-header {
   border-radius: 0;
   margin-bottom: -1px;
+}
+.accordion-header button {
+  border: none;
+  padding: 3px;
+  background: none;
 }
 .breadcrumb {
   display: -ms-flexbox;

@@ -2,24 +2,23 @@ import React, { useEffect, useState } from "react";
 import MainScreen from "../../components/MainScreen";
 import { Link } from "react-router-dom";
 import { Button, Card, Badge, Accordion } from "react-bootstrap";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { listNotes } from "../../actions/notesAction";
 
 const MyNotes = () => {
-  const [notes, setNotes] = useState([]);
+  const dispatch = useDispatch();
+
+  const noteList = useSelector((state) => state.noteList);
+  const { loading, notes, error } = noteList;
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure?")) {
     }
   };
 
-  const fetchNotes = async () => {
-    const { data } = await axios.get("/api/notes");
-    setNotes(data);
-  };
-
   useEffect(() => {
-    fetchNotes();
-  }, []);
+    dispatch(listNotes());
+  }, [dispatch]);
 
   return (
     <MainScreen title="Welcome back Harpreet Kaur..">
@@ -28,7 +27,7 @@ const MyNotes = () => {
           Create New Note
         </Button>
       </Link>
-      {notes.map((note) => (
+      {notes?.map((note) => (
         <Accordion key={note._id}>
           {/* <Accordion.Item eventKey="0"> */}
           <Card style={{ margin: 10 }}>
@@ -40,10 +39,12 @@ const MyNotes = () => {
                   flex: 1,
                   cursor: "pointer",
                   alignSelf: "center",
-                  fontSize: 18,
+                  fontSize: 12,
                 }}
               >
-                <Accordion.Header>{note.title}</Accordion.Header>
+                <Accordion.Header style={{ fontSize: 20 }}>
+                  {note.title}
+                </Accordion.Header>
               </span>
               <div>
                 <Button className="m-2" href={`/note/${note.id}`}>

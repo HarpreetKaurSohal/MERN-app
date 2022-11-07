@@ -3,6 +3,6 @@
   flex-direction: column;
   margin: 20px;
 }
-button {
+.loginContainer button {
   margin-top: 20px;
 }
