@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import LoginPage from "./screens/LoginPage/LoginPage";
 import RegisterPage from "./screens/RegisterPage/RegisterPage";
 import LandingPage from "./screens/LandingPage/LandingPage";
+import CreateNote from "./screens/CreateNote/CreateNote";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MyNotes from "./screens/MyNotes/MyNotes";
 
@@ -16,6 +17,7 @@ const App = () => (
         <Route exact path="/login" element={<LoginPage />} />
         <Route exact path="/register" element={<RegisterPage />} />
         <Route exact path="/mynotes" element={<MyNotes />} />
+        <Route exact path="/createnote" element={<CreateNote />} />
       </Routes>
     </main>
 

@@ -10,7 +10,7 @@ const createNote = asyncHandler(async (req, res) => {
   const { title, content, category } = req.body;
   if (!title || !content || !category) {
     res.status(400);
-    throw new Error("Plaese fill all the fields");
+    throw new Error("Please fill all the fields");
   } else {
     const note = new Note({ user: req.user._id, title, content, category });
 
