@@ -31,9 +31,7 @@ function CreateNote() {
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!title || !content || !category) return;
-    console.log("here");
     dispatch(createNoteAction(title, content, category));
-    console.log("there");
     resetHandler();
     navigate("/mynotes");
   };
