@@ -9,6 +9,7 @@ import CreateNote from "./screens/CreateNote/CreateNote";
 import SingleNote from "./screens/SingleNote/SingleNote";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MyNotes from "./screens/MyNotes/MyNotes";
+import ProfilePage from "./screens/ProfilePage/ProfilePage";
 
 const App = () => {
   const [search, setSearch] = useState("");
@@ -24,6 +25,7 @@ const App = () => {
           <Route exact path="/mynotes" element={<MyNotes search={search} />} />
           <Route exact path="/createnote" element={<CreateNote />} />
           <Route exact path="/note/:id" element={<SingleNote />} />
+          <Route exact path='/profile' element={<ProfilePage/>} /> 
         </Routes>
       </main>
 
