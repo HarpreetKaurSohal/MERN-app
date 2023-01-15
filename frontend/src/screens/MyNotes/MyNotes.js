@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteNoteAction, listNotes } from "../../actions/notesAction";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
+import {BsFillExclamationTriangleFill} from "react-icons/bs";
+import './MyNotes.css';
 
 const MyNotes = ({ search }) => {
   const dispatch = useDispatch();
@@ -75,16 +77,10 @@ const MyNotes = ({ search }) => {
             <Card style={{ margin: 10 }}>
               <Card.Header style={{ display: "flex" }}>
                 <span
-                  style={{
-                    color: "black",
-                    textDecoration: "none",
-                    flex: 1,
-                    cursor: "pointer",
-                    alignSelf: "center",
-                    fontSize: 12,
-                  }}
+                  className="note-span"
                 >
-                  <Accordion.Header style={{ fontSize: 20 }}>
+                  {note.category==='important' && <BsFillExclamationTriangleFill className="svgicon"/>}
+                  <Accordion.Header style={{ fontSize: 20}}>
                     {note.title}
                   </Accordion.Header>
                 </span>

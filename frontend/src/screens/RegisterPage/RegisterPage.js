@@ -103,6 +103,7 @@ const RegisterPage = () => {
             <Form.Control
               type="password"
               value={password}
+              minLength="8"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             />

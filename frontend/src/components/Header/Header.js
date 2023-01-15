@@ -26,14 +26,14 @@ const Header = ({ setSearch }) => {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="m-auto">
-            <Form className="d-flex">
+            {userInfo && <Form className="d-flex">
               <Form.Control
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 onChange={(e) => setSearch(e.target.value)}
               />
-            </Form>
+            </Form>}
           </Nav>
           {userInfo ? (
             <Nav

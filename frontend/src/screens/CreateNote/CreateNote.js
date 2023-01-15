@@ -76,7 +76,7 @@ function CreateNote() {
               <Form.Control
                 type="category"
                 value={category}
-                placeholder="Enter the category"
+                placeholder="Mark your note as important to access them easily"
                 onChange={(e) => setCategory(e.target.value)}
               />
             </Form.Group>

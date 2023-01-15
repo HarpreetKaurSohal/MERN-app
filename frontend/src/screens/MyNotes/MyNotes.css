@@ -1,0 +1,14 @@
+.svgicon{
+    color: red;
+    height: 30px;
+    width: 30px;
+}
+.note-span{
+    color: black;
+    text-decoration: none;
+    display:flex;
+    flex: 1;
+    cursor: pointer;
+    align-self: center;
+    font-size: 12;
+}
